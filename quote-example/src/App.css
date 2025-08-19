@@ -1,42 +1,71 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  background: #f5f7fb;
+  margin: 0;
+  font-family: sans-serif;
+  color: #4b2e2e;
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  margin: auto;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filters button {
+  margin: 0.3rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.filters .active {
+  background: #a15c2e;
+  color: white;
 }
 
-.card {
-  padding: 2em;
+.quote-card {
+  background: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
-.read-the-docs {
-  color: #888;
+.quote-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 1rem 0;
 }
+
+.actions button {
+  margin: 0 0.5rem;
+  background: #a15c2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 1rem;
+  background: #a15c2e;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.sidebar.left { left: 1rem; }
+.sidebar.right { right: 1rem; }
