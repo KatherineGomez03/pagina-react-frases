@@ -1,0 +1,71 @@
+body {
+  background: #f5f7fb;
+  margin: 0;
+  font-family: sans-serif;
+  color: #4b2e2e;
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  margin: auto;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.filters button {
+  margin: 0.3rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filters .active {
+  background: #a15c2e;
+  color: white;
+}
+
+.quote-card {
+  background: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.quote-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.actions button {
+  margin: 0 0.5rem;
+  background: #a15c2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 1rem;
+  background: #a15c2e;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.sidebar.left { left: 1rem; }
+.sidebar.right { right: 1rem; }
