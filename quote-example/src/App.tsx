@@ -3,6 +3,7 @@ import Header from  './components/Header';
 import Filters from './components/Filter';
 import QuoteCard from './components/QuoteCard';
 import Sidebar from './components/Sidebar';
+
 import type { Quote } from "./props/types";
 const quotes = [
 { text: "The only way to do great work is to love what you do.", author: "Steve Jobs", category: "Motivation" },
@@ -28,6 +29,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentQuote, setCurrentQuote] = useState<Quote>(quotes[0]);
   const [favorites, setFavorites] = useState<Quote[]>([]);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   // Cambia la nota al cambiar la categoría
   useEffect(() => {
@@ -49,6 +51,10 @@ function App() {
 
   const isFavorite = favorites.some(fav => fav.text === currentQuote.text && fav.author === currentQuote.author);
 
+  const handleRemoveFavorite = (quote: Quote) => {
+    setFavorites(favorites.filter(fav => fav.text !== quote.text || fav.author !== quote.author));
+  };
+
   const handleToggleFavorite = () => {
     if (isFavorite) {
       setFavorites(favorites.filter(fav => fav.text !== currentQuote.text || fav.author !== currentQuote.author));
@@ -61,7 +67,11 @@ function App() {
 
   return (
     <div className="app-bg">
-      <Sidebar quotesCount={quotes.length} favorites={favorites} />
+      <Sidebar 
+        quotesCount={quotes.length} 
+        favorites={favorites} 
+        onShowFavorites={() => setShowSidebar(true)}
+      />
       <main className="app-main">
         <Header />
         <Filters selected={selectedCategory} setSelected={setSelectedCategory} />
@@ -72,6 +82,30 @@ function App() {
           isFavorite={isFavorite}
         />
       </main>
+      {showSidebar && (
+        <div className="favorites-panel-bg" onClick={() => setShowSidebar(false)} />
+      )}
+      <aside className={`favorites-panel${showSidebar ? ' open' : ''}`}>
+        <div className="favorites-panel-header">
+          <span>Favoritos ({favorites.length}/5)</span>
+          <button className="close-btn" onClick={() => setShowSidebar(false)}>&times;</button>
+        </div>
+        <div className="favorites-list">
+          {favorites.length === 0 ? (
+            <p className="favorites-empty">No favorites yet.</p>
+          ) : (
+            favorites.map((fav, idx) => (
+              <div className="favorite-item" key={fav.text + fav.author + idx}>
+                <div>
+                  <span className="favorite-quote">"{fav.text}"</span>
+                  <span className="favorite-author">— {fav.author}</span>
+                </div>
+                <button className="remove-fav-btn" onClick={() => handleRemoveFavorite(fav)} title="Remove from favorites">&times;</button>
+              </div>
+            ))
+          )}
+        </div>
+      </aside>
     </div>
   );
 }

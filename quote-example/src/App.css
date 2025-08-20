@@ -1,3 +1,90 @@
+/* Panel lateral de favoritos */
+.favorites-panel-bg {
+	position: fixed;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: rgba(0,0,0,0.2);
+	z-index: 40;
+}
+.favorites-panel {
+	position: fixed;
+	top: 0;
+	right: -350px;
+	width: 320px;
+	max-width: 90vw;
+	height: 100vh;
+	background: #fff;
+	box-shadow: -2px 0 12px rgba(0,0,0,0.12);
+	z-index: 50;
+	transition: right 0.3s cubic-bezier(.4,0,.2,1);
+	display: flex;
+	flex-direction: column;
+}
+.favorites-panel.open {
+	right: 0;
+}
+.favorites-panel-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	background: #ed834e;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+.close-btn {
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 2rem;
+	cursor: pointer;
+	line-height: 1;
+}
+.favorites-list {
+	flex: 1;
+	overflow-y: auto;
+	padding: 1rem;
+}
+.favorite-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	background: #ebe1c5;
+	border-radius: 0.5rem;
+	margin-bottom: 1rem;
+	padding: 0.75rem 1rem;
+	gap: 1rem;
+}
+.favorite-quote {
+	display: block;
+	color: #595643;
+	font-size: 1rem;
+	font-style: italic;
+}
+.favorite-author {
+	display: block;
+	color: #4e6b66;
+	font-size: 0.9rem;
+}
+.remove-fav-btn {
+	background: #ed834e;
+	color: #fff;
+	border: none;
+	border-radius: 0.5rem;
+	font-size: 1.2rem;
+	padding: 0.2rem 0.7rem;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.remove-fav-btn:hover {
+	background: #ebcc6e;
+	color: #595643;
+}
+.favorites-empty {
+	color: #aaa;
+	text-align: center;
+	margin-top: 2rem;
+}
 /* Layout general */
 .app-bg {
 	min-height: 100vh;
