@@ -47,9 +47,15 @@ function App() {
     setCurrentQuote(random);
   };
 
-  const handleAddFavorite = () => {
-    if (favorites.length < 5 && !favorites.includes(currentQuote)) {
-      setFavorites([...favorites, currentQuote]);
+  const isFavorite = favorites.some(fav => fav.text === currentQuote.text && fav.author === currentQuote.author);
+
+  const handleToggleFavorite = () => {
+    if (isFavorite) {
+      setFavorites(favorites.filter(fav => fav.text !== currentQuote.text || fav.author !== currentQuote.author));
+    } else {
+      if (favorites.length < 5) {
+        setFavorites([...favorites, currentQuote]);
+      }
     }
   };
 
@@ -62,7 +68,8 @@ function App() {
         <QuoteCard 
           quote={currentQuote} 
           onNew={handleNewQuote} 
-          onFavorite={handleAddFavorite} 
+          onFavorite={handleToggleFavorite}
+          isFavorite={isFavorite}
         />
       </main>
     </div>
