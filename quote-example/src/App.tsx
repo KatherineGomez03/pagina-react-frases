@@ -4,7 +4,6 @@ import Filters from './components/Filter';
 import QuoteCard from './components/QuoteCard';
 import Sidebar from './components/Sidebar';
 import type { Quote } from "./props/types";
-import './App.css';
 const quotes = [
   { text: "The only way to do great work is to love what you do.", author: "Steve Jobs", category: "Motivation" },
   { text: "Success is not in what you have, but who you are.", author: "Bo Bennett", category: "Success" },
@@ -32,9 +31,9 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <div className="flex min-h-screen bg-orange-50">
       <Sidebar quotesCount={quotes.length} favorites={favorites} />
-      <div className="main">
+      <main className="flex-1 flex flex-col items-center justify-center">
         <Header />
         <Filters selected={selectedCategory} setSelected={setSelectedCategory} />
         <QuoteCard 
@@ -42,7 +41,7 @@ function App() {
           onNew={handleNewQuote} 
           onFavorite={handleAddFavorite} 
         />
-      </div>
+      </main>
     </div>
   );
 }
