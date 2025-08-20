@@ -4,15 +4,12 @@ function Filters({ selected, setSelected }: FiltersProps) {
   const categories = ["All", "Motivation", "Success", "Life", "Wisdom"];
   
   return (
-    <div className="mb-6 flex flex-wrap justify-center gap-2">
+  <div className="filters-container">
       {categories.map(id => (
         <button 
           key={id}
           className={
-            (selected === id
-              ? "bg-orange-800 text-white "
-              : "bg-white text-orange-800 border border-orange-800 ") +
-            "rounded px-4 py-2 transition font-medium hover:bg-orange-700 hover:text-white"
+            `filter-btn${selected === id ? ' filter-btn-active' : ''}`
           }
           onClick={() => setSelected(id)}
         >

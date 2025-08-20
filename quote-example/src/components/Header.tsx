@@ -1,10 +1,10 @@
 export function Header() {
     {
   return (
-    <div className="mb-8">
-      <h1 className="text-3xl font-bold mb-2">Inspirational Quotes</h1>
-      <p className="text-lg text-gray-700">Discover wisdom, motivation, and inspiration for your journey</p>
-    </div>
+      <div className="header-container">
+        <h1 className="header-title">Inspirational Quotes</h1>
+        <p className="header-desc">Discover wisdom, motivation, and inspiration for your journey</p>
+      </div>
   );
 }}
 export default Header;

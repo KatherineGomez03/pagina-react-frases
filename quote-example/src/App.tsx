@@ -31,9 +31,9 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen bg-orange-50">
+    <div className="app-bg">
       <Sidebar quotesCount={quotes.length} favorites={favorites} />
-      <main className="flex-1 flex flex-col items-center justify-center">
+      <main className="app-main">
         <Header />
         <Filters selected={selectedCategory} setSelected={setSelectedCategory} />
         <QuoteCard 
