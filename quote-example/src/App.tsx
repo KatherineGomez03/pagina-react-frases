@@ -22,10 +22,22 @@ const quotes = [
   { text: "It always seems impossible until it's done.", author: "Nelson Mandela", category: "Wisdom" },
 ];
 
+import { useEffect } from "react";
+
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentQuote, setCurrentQuote] = useState<Quote>(quotes[0]);
-    const [favorites, setFavorites] = useState<Quote[]>([]);
+  const [favorites, setFavorites] = useState<Quote[]>([]);
+
+  // Cambia la nota al cambiar la categoría
+  useEffect(() => {
+    const filtered = selectedCategory === "All"
+      ? quotes
+      : quotes.filter(q => q.category === selectedCategory);
+    if (filtered.length > 0) {
+      setCurrentQuote(filtered[Math.floor(Math.random() * filtered.length)]);
+    }
+  }, [selectedCategory]);
 
   const handleNewQuote = () => {
     const filtered = selectedCategory === "All"
