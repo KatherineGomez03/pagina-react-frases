@@ -1,10 +1,16 @@
-import type {SidebarProps} from '../props/types';
+import type { SidebarProps } from '../props/types';
 
-function Sidebar({ quotesCount, favorites }: SidebarProps) {
+interface SidebarExtendedProps extends SidebarProps {
+  onShowFavorites: () => void;
+}
+
+function Sidebar({ quotesCount, favorites, onShowFavorites }: SidebarExtendedProps) {
   return (
     <>
-  <div className="sidebar-box sidebar-left">Quotes: {quotesCount}</div>
-  <div className="sidebar-box sidebar-right">♡ Favorites ({favorites.length}/5)</div>
+      <div className="sidebar-box sidebar-left">Quotes: {quotesCount}</div>
+      <button className="sidebar-box sidebar-right" onClick={onShowFavorites}>
+        ♡ Favorites ({favorites.length}/5)
+      </button>
     </>
   );
 }
