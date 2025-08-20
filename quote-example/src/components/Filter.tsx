@@ -4,11 +4,13 @@ function Filters({ selected, setSelected }: FiltersProps) {
   const categories = ["All", "Motivation", "Success", "Life", "Wisdom"];
   
   return (
-    <div className="filters">
+  <div className="filters-container">
       {categories.map(id => (
         <button 
           key={id}
-          className={selected === id ? "active" : ""}
+          className={
+            `filter-btn${selected === id ? ' filter-btn-active' : ''}`
+          }
           onClick={() => setSelected(id)}
         >
           {id}
